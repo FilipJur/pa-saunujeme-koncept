@@ -1,0 +1,40 @@
+- generic [ref=e3]:
+  - generic [ref=e5]: Video Background Placeholder
+  - generic [ref=e6]:
+    - link "Typizované infrasauny" [ref=e7] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e8]:
+        - text: TYPIZOVANÉ
+        - text: INFRASAUNY
+    - link "Infrasauny na míru" [ref=e9] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e10]:
+        - text: INFRASAUNY
+        - text: NA MÍRU
+    - link "Infrasauny dle počtu osob" [ref=e11] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e12]:
+        - text: INFRASAUNY
+        - text: DLE POČTU
+        - text: OSOB
+    - link "Venkovní infrasauny" [ref=e13] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e14]:
+        - text: VENKOVNÍ
+        - text: INFRASAUNY
+    - link "Physiotherm" [ref=e15] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e16]: PHYSIOTHERM
+    - generic [ref=e18]:
+      - heading "Infrasauna" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Dopřejte si chvíle klidu, regenerace a hlubokého prohřátí již za jednu sekundu. Naše infrasauny prohřejí vaše tělo až do hloubky 4 cm.
+  - generic [ref=e21]:
+    - article [ref=e22]:
+      - heading "Příjemná teplota 40–55 °C" [level=3] [ref=e23]
+      - paragraph [ref=e25]: U infrasauny není podstatná teplota vzduchu, ale to, co cítí vaše tělo. Teplo z infrazářičů působí přímo na organismus a prohřívá vás zevnitř.
+    - article [ref=e26]:
+      - heading "Prohřátí 4 cm do hloubky" [level=3] [ref=e27]
+      - paragraph [ref=e29]: Širokospektrální infrazáření Vitae proniká hluboko do podkožních vrstev, kde podporuje regeneraci svalů, kloubů i celkovou obnovu těla.
+    - article [ref=e30]:
+      - heading "100% výkon za 1 sekundu" [level=3] [ref=e31]
+      - paragraph [ref=e33]: Zářiče Vitae dosahují plného výkonu téměř ihned po zapnutí, takže si saunování můžete dopřát kdykoliv – bez dlouhého nahřívání.

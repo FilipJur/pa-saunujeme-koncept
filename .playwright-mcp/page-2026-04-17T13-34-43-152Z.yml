@@ -1,0 +1,30 @@
+- generic [ref=e3]:
+  - generic [ref=e5]: Video Background Placeholder
+  - generic [ref=e6]:
+    - link "Typizované infrasauny" [ref=e7] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e8]:
+        - text: TYPIZOVANÉ
+        - text: INFRASAUNY
+    - link "Infrasauny na míru" [ref=e9] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e10]:
+        - text: INFRASAUNY
+        - text: NA MÍRU
+    - link "Infrasauny dle počtu osob" [ref=e11] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e12]:
+        - text: INFRASAUNY
+        - text: DLE POČTU
+        - text: OSOB
+    - link "Venkovní infrasauny" [ref=e13] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e14]:
+        - text: VENKOVNÍ
+        - text: INFRASAUNY
+    - link "Physiotherm" [ref=e15] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e16]: PHYSIOTHERM
+    - generic [ref=e18]:
+      - heading "Infrasauna" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Dopřejte si chvíle klidu, regenerace a hlubokého prohřátí již za jednu sekundu. Naše infrasauny prohřejí vaše tělo až do hloubky 4 cm.
