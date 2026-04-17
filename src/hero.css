@@ -172,10 +172,10 @@ body {
   --angle: -15deg;
 } /* Upper-right (C1) */
 .sub-circle:nth-child(3) {
-  --angle: 55deg;
+  --angle: 50deg;
 } /* Bottom-right (C2) */
 .sub-circle:nth-child(4) {
-  --angle: 125deg;
+  --angle: 130deg;
 } /* Bottom-left (C3) - mirror of C2 */
 .sub-circle:nth-child(5) {
   --angle: 195deg;
