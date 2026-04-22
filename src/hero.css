@@ -57,7 +57,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
   width: 100%;
   padding: 140px 20px 100px;
 }
@@ -181,42 +180,86 @@ body {
   --angle: 195deg;
 } /* Upper-left (C4) - mirror of C1 */
 
-/* Mobile: Collapse circles to vertical stack */
+/* Mobile: Pill button layout */
 @media (max-width: 768px) {
   .circle-nav-container {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
     padding: 60px 20px;
   }
 
   .main-circle {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
     order: -1;
+    margin-bottom: 20px;
   }
 
   .main-circle-content h1 {
-    font-family: var(--font-base);
-    font-size: 32px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .main-circle-content p {
-    font-family: var(--font-base);
-    font-size: 14px;
+    line-height: 1.5;
   }
 
   .sub-circle {
     position: relative;
     top: auto;
     left: auto;
-    width: 200px;
-    height: 200px;
+    width: auto;
+    min-width: fit-content;
+    max-width: 20%;
+    height: auto;
+    padding: 16px 28px;
+    border-radius: 999px;
     transform: none;
     --orbit-radius: 0;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    animation: pill-fade-in 0.4s ease both;
+  }
+
+  .sub-circle br {
+    display: none;
+  }
+
+  .sub-circle:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .sub-circle:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .sub-circle:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .sub-circle:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .sub-circle:nth-child(5) {
+    animation-delay: 0.3s;
   }
 
   .sub-circle:hover {
     transform: none;
+  }
+}
+
+@keyframes pill-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
