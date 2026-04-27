@@ -252,6 +252,23 @@ body {
   }
 }
 
+@media (max-width: 400px) {
+  .main-circle-content h1 {
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .main-circle-content p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .sub-circle {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+}
+
 @keyframes pill-fade-in {
   from {
     opacity: 0;
