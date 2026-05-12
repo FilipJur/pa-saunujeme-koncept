@@ -86,18 +86,20 @@ body > section {
 .pa-text--small {
   font-size: 14px;
 }
-
+.pa-models__actions {
+  flex-wrap: wrap;
+}
 /* Reusable button component */
 .pa-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--pa-space-sm);
-  padding: 15px 28px;
+  padding: 17px 28px;
   font-family: var(--pa-font-base);
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.1;
   text-decoration: none;
   border-radius: 27px;
   cursor: pointer;
@@ -106,12 +108,11 @@ body > section {
     color 0.2s ease,
     border-color 0.2s ease;
   border: 2px solid transparent;
-  height: 100%;
 }
 
 .pa-btn svg {
-  width: 19px;
-  height: 19px;
+  width: auto;
+  height: 1em;
   flex-shrink: 0;
 }
 
@@ -136,7 +137,7 @@ body > section {
 
 .pa-btn--outline:hover {
   background: var(--pa-color-gold);
-  color: var(--pa-color-dark);
+  color: var(--pa-color-white);
 }
 
 /* Breakpoint reference (use in section-specific media queries) */

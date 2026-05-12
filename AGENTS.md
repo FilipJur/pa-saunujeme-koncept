@@ -177,5 +177,7 @@ Before declaring a section complete, verify:
 - [ ] Mobile styles exist under `@media (max-width: 768px)`.
 - [ ] Jost font is imported via Google Fonts.
 - [ ] CSS custom properties from `shared.css` are used where applicable.
-- [ ] The section renders correctly at `http://localhost:5173/pa-{section-name}.html`.
+- [ ] The section file is ready for manual verification at `http://localhost:5173/pa-{section-name}.html`.
 - [ ] A handoff-ready version (shared + section styles inlined in one `<style>`) can be produced.
+
+**Note:** Do not use Playwright MCP or any other automated verification tool. The user will verify sections manually.

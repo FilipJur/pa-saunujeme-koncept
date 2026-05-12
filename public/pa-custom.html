@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infrasauny na míru — Dev Preview</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .pa-custom {
+        background: #FAF9F7;
+      }
+
+      .pa-custom__gallery {
+        display: flex;
+        gap: 10px;
+        height: 401px;
+      }
+
+      .pa-custom__image {
+        flex: 1 1 50%;
+        min-width: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .pa-custom__image--first {
+        background-image: url('assets/sections/Infrasauny-na-miru/img1.png');
+      }
+
+      .pa-custom__image--second {
+        background-image: url('assets/sections/Infrasauny-na-miru/img2.png');
+      }
+
+      .pa-custom__features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+        gap: 30px;
+        margin-top: 55px;
+      }
+
+      .pa-custom__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 25px;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .pa-custom__card-title {
+        font-family: var(--pa-font-base);
+        font-size: 46px;
+        font-weight: 400;
+        color: var(--pa-color-dark);
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .pa-custom__card-line {
+        width: 100%;
+        height: 0;
+        border: none;
+        border-top: 1px solid var(--pa-color-dark);
+        margin: 0;
+      }
+
+      .pa-custom__card-text {
+        font-family: var(--pa-font-base);
+        font-size: 21px;
+        font-weight: 400;
+        color: var(--pa-color-dark);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .pa-custom__actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      @media (max-width: 768px) {
+        .pa-custom__gallery {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .pa-custom__image {
+          flex: none;
+          height: 250px;
+        }
+
+        .pa-custom__features {
+          margin-top: 40px;
+        }
+
+        .pa-custom__card-title {
+          font-size: 32px;
+        }
+
+        .pa-custom__card-text {
+          font-size: 18px;
+        }
+
+        .pa-custom__actions {
+          flex-direction: column;
+          margin-top: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pa-custom">
+      <div class="pa-custom__gallery">
+        <div class="pa-custom__image pa-custom__image--first"></div>
+        <div class="pa-custom__image pa-custom__image--second"></div>
+      </div>
+
+      <div class="pa-custom__features">
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Česká ruční výroba</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Každá sauna vzniká v Kutné Hoře pod rukama zkušených řemeslníků s důrazem na precizní zpracování a dlouhou životnost.
+          </p>
+        </div>
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Prémiové infrazářiče</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Používáme špičkové německé širokospektrální zářiče Vitae, jejichž účinky se nejvíce blíží přirozenému slunečnímu záření.
+          </p>
+        </div>
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Přesně podle Vašeho přání</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Rozměry, materiály i vybavení přizpůsobíme Vašim požadavkům tak, aby sauna odpovídala přesně tomu, co od ní očekáváte.
+          </p>
+        </div>
+      </div>
+
+      <div class="pa-custom__actions">
+        <a href="#" class="pa-btn pa-btn--primary">zjistit cenu</a>
+        <a href="#" class="pa-btn pa-btn--outline">
+          <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 16.6667V14.5833C0 14.008 0.46637 13.5417 1.04167 13.5417C1.61696 13.5417 2.08333 14.008 2.08333 14.5833V16.6667C2.08333 16.9429 2.19316 17.2078 2.38851 17.4032C2.58386 17.5985 2.84873 17.7083 3.125 17.7083H15.625C15.9013 17.7083 16.1661 17.5985 16.3615 17.4032C16.5568 17.2078 16.6667 16.9429 16.6667 16.6667V14.5833C16.6667 14.008 17.133 13.5417 17.7083 13.5417C18.2836 13.5417 18.75 14.008 18.75 14.5833V16.6667C18.75 17.4955 18.4205 18.2901 17.8345 18.8761C17.2484 19.4622 16.4538 19.7917 15.625 19.7917H3.125C2.2962 19.7917 1.50158 19.4622 0.915527 18.8761C0.329476 18.2901 0 17.4955 0 16.6667ZM8.33333 1.04167C8.33333 0.46637 8.7997 0 9.375 0C9.9503 0 10.4167 0.46637 10.4167 1.04167V11.027L13.8468 7.59684C14.2536 7.19005 14.913 7.19005 15.3198 7.59684C15.7266 8.00364 15.7266 8.66303 15.3198 9.06982L10.1115 14.2782C9.70469 14.685 9.0453 14.685 8.63851 14.2782L3.43018 9.06982C3.02338 8.66303 3.02338 8.00364 3.43018 7.59684C3.83697 7.19005 4.49636 7.19005 4.90316 7.59684L8.33333 11.027V1.04167Z" fill="currentColor"/>
+          </svg>
+          Stáhnout katalogy infrasaun
+        </a>
+      </div>
+    </section>
+  </body>
+</html>
