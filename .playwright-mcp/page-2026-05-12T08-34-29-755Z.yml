@@ -1,0 +1,12 @@
+- generic [ref=e2]:
+  - heading "Vitae Dark Aspen" [level=2] [ref=e4]
+  - heading "Vitae Design" [level=2] [ref=e6]
+  - heading "Vitae Silver" [level=2] [ref=e8]
+  - heading "Vitae Diamond" [level=2] [ref=e10]
+  - generic [ref=e11]:
+    - link "zjistit cenu" [ref=e12] [cursor=pointer]:
+      - /url: "#"
+    - link "Stáhnout katalogy infrasaun" [ref=e13] [cursor=pointer]:
+      - /url: "#"
+      - img [ref=e14]
+      - text: Stáhnout katalogy infrasaun

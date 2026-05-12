@@ -1,0 +1,144 @@
+/* === SHARED BASE STYLES === */
+
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
+:root {
+  /* Colors */
+  --pa-color-dark: #14161a;
+  --pa-color-gold: #bf9b70;
+  --pa-color-white: #ffffff;
+  --pa-color-text: #6b6375;
+  --pa-color-text-heading: #08060d;
+
+  /* Typography */
+  --pa-font-base: "Jost", system-ui, sans-serif;
+  --pa-font-mono: ui-monospace, Consolas, monospace;
+
+  /* Spacing */
+  --pa-space-xs: 4px;
+  --pa-space-sm: 8px;
+  --pa-space-md: 16px;
+  --pa-space-lg: 24px;
+  --pa-space-xl: 32px;
+  --pa-space-2xl: 48px;
+  --pa-space-3xl: 64px;
+}
+
+/* Minimal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--pa-font-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dev preview container — simulates CMS wrapper proportions */
+body > section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Base typography */
+.pa-heading {
+  font-family: var(--pa-font-base);
+  font-weight: 700;
+  color: var(--pa-color-text-heading);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-heading--h1 {
+  font-size: 56px;
+}
+
+.pa-heading--h2 {
+  font-size: 42px;
+}
+
+.pa-heading--h3 {
+  font-size: 32px;
+}
+
+.pa-heading--h4 {
+  font-size: 24px;
+}
+
+.pa-text {
+  font-family: var(--pa-font-base);
+  font-weight: 400;
+  color: var(--pa-color-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pa-text--large {
+  font-size: 21px;
+}
+
+.pa-text--small {
+  font-size: 14px;
+}
+
+/* Reusable button component */
+.pa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pa-space-sm);
+  padding: 15px 28px;
+  font-family: var(--pa-font-base);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  text-decoration: none;
+  border-radius: 27px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  border: 2px solid transparent;
+  height: 100%;
+}
+
+.pa-btn svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+/* Primary — dark fill */
+.pa-btn--primary {
+  background: var(--pa-color-dark);
+  color: var(--pa-color-white);
+  border-color: var(--pa-color-dark);
+}
+
+.pa-btn--primary:hover {
+  background: transparent;
+  color: var(--pa-color-dark);
+}
+
+/* Outline — gold border */
+.pa-btn--outline {
+  background: transparent;
+  color: var(--pa-color-gold);
+  border-color: var(--pa-color-gold);
+}
+
+.pa-btn--outline:hover {
+  background: var(--pa-color-gold);
+  color: var(--pa-color-dark);
+}
+
+/* Breakpoint reference (use in section-specific media queries) */
+/* Mobile:  max-width: 768px  */
+/* Tablet:  max-width: 1024px */

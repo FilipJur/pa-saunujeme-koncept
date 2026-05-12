@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modely — Dev Preview</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .pa-models {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+        gap: 10px;
+      }
+
+      .pa-models__actions {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 20px;
+      }
+
+      .pa-models__card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 40px;
+        min-height: 394px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .pa-models__card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(20, 22, 26, 0.35);
+      }
+
+      .pa-models__title {
+        position: relative;
+        z-index: 1;
+        font-family: var(--pa-font-base);
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      @media (max-width: 768px) {
+        .pa-models__card {
+          min-height: 280px;
+          padding: 60px 24px;
+        }
+
+        .pa-models__title {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pa-models">
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img1.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Dark Aspen</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img2.png')"
+      >
+        <h2 class="pa-models__title">Vitae Design</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img3.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Silver</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img4.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Diamond</h2>
+      </div>
+
+      <div class="pa-models__actions">
+        <a href="#" class="pa-btn pa-btn--primary">zjistit cenu</a>
+        <a href="#" class="pa-btn pa-btn--outline">
+          <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 16.6667V14.5833C0 14.008 0.46637 13.5417 1.04167 13.5417C1.61696 13.5417 2.08333 14.008 2.08333 14.5833V16.6667C2.08333 16.9429 2.19316 17.2078 2.38851 17.4032C2.58386 17.5985 2.84873 17.7083 3.125 17.7083H15.625C15.9013 17.7083 16.1661 17.5985 16.3615 17.4032C16.5568 17.2078 16.6667 16.9429 16.6667 16.6667V14.5833C16.6667 14.008 17.133 13.5417 17.7083 13.5417C18.2836 13.5417 18.75 14.008 18.75 14.5833V16.6667C18.75 17.4955 18.4205 18.2901 17.8345 18.8761C17.2484 19.4622 16.4538 19.7917 15.625 19.7917H3.125C2.2962 19.7917 1.50158 19.4622 0.915527 18.8761C0.329476 18.2901 0 17.4955 0 16.6667ZM8.33333 1.04167C8.33333 0.46637 8.7997 0 9.375 0C9.9503 0 10.4167 0.46637 10.4167 1.04167V11.027L13.8468 7.59684C14.2536 7.19005 14.913 7.19005 15.3198 7.59684C15.7266 8.00364 15.7266 8.66303 15.3198 9.06982L10.1115 14.2782C9.70469 14.685 9.0453 14.685 8.63851 14.2782L3.43018 9.06982C3.02338 8.66303 3.02338 8.00364 3.43018 7.59684C3.83697 7.19005 4.49636 7.19005 4.90316 7.59684L8.33333 11.027V1.04167Z" fill="currentColor"/>
+          </svg>
+          Stáhnout katalogy infrasaun
+        </a>
+      </div>
+    </section>
+  </body>
+</html>
