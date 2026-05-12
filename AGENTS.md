@@ -155,6 +155,7 @@ Example handoff structure:
 3. **No build dependencies** — the final HTML must render identically when pasted into any CMS.
 4. **Vanilla CSS only** — no Sass, Less, PostCSS nesting (unless you inline the compiled output).
 5. **Responsive by default** — use modern responsive patterns (CSS Grid `autofit`/`minmax`, Flexbox `wrap`, `clamp()` for fluid sizing). Mobile breakpoint at `@media (max-width: 768px)`.
+6. **Always use responsive grid** — `grid-template-columns: repeat(auto-fit, minmax(min(100%, Npx), 1fr))` is the default layout pattern for card collections. Never use fixed `px` values for `width` or `height` on layout containers or cards.
 6. **Font**: Jost (400, 700) loaded via Google Fonts `@import`.
 7. **No outer containers** — do not set `max-width`, outer `padding`, or container queries on the root section element. The CMS provides the wrapping container. Sections should fill their parent and only control internal layout.
 

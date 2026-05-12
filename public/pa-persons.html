@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dle počtu osob — Dev Preview</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .pa-persons {
+        background: #FAF9F7;
+      }
+
+      .pa-persons__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+        gap: 10px;
+      }
+
+      .pa-persons__grid-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(40px, 6vw, 80px) clamp(20px, 3vw, 40px);
+        aspect-ratio: 16 / 10;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .pa-persons__grid-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(20, 22, 26, 0.35);
+      }
+
+      .pa-persons__grid-card--1 {
+        background-image: url('assets/sections/4x4/img1.jpg');
+      }
+
+      .pa-persons__grid-card--2 {
+        background-image: url('assets/sections/4x4/img2.png');
+      }
+
+      .pa-persons__grid-card--3 {
+        background-image: url('assets/sections/4x4/img3.jpg');
+      }
+
+      .pa-persons__grid-card--4 {
+        background-image: url('assets/sections/4x4/img4.jpg');
+      }
+
+      .pa-persons__grid-title {
+        position: relative;
+        z-index: 1;
+        font-family: var(--pa-font-base);
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .pa-persons__features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+        gap: 30px;
+        margin-top: 55px;
+      }
+
+      .pa-persons__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 25px;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .pa-persons__card-title {
+        font-family: var(--pa-font-base);
+        font-size: clamp(32px, 4vw, 46px);
+        font-weight: 400;
+        color: var(--pa-color-dark);
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .pa-persons__card-line {
+        width: 100%;
+        height: 0;
+        border: none;
+        border-top: 1px solid var(--pa-color-dark);
+        margin: 0;
+      }
+
+      .pa-persons__card-text {
+        font-family: var(--pa-font-base);
+        font-size: clamp(16px, 2vw, 21px);
+        font-weight: 400;
+        color: var(--pa-color-dark);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .pa-persons__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pa-persons__grid-title {
+          font-size: 22px;
+        }
+
+        .pa-persons__features {
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pa-persons">
+      <div class="pa-persons__grid">
+        <div class="pa-persons__grid-card pa-persons__grid-card--1">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 1 osobu</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--2">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 2 osoby</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--3">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 3 osoby</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--4">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 4 osoby</h2>
+        </div>
+      </div>
+
+      <div class="pa-persons__features">
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Maximální komfort</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Správně zvolená velikost zajistí dostatek prostoru pro každého uživatele a ničím nerušený zážitek z prohřívání.
+          </p>
+        </div>
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Efektivní využití výkonu</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Velikost kabiny odpovídá výkonu infrazářičů, což zajišťuje rovnoměrné a účinné prohřátí bez zbytečných ztrát energie.
+          </p>
+        </div>
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Přizpůsobení dle prostoru</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Ať už hledáte saunu pro jednotlivce nebo pro více osob, snadno ji sladíte s dispozicí interiéru nebo exteriéru i způsobem využití.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
