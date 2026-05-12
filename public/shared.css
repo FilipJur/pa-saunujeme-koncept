@@ -140,6 +140,18 @@ body > section {
   color: var(--pa-color-white);
 }
 
+/* White — light fill */
+.pa-btn--white {
+  background: var(--pa-color-white);
+  color: var(--pa-color-dark);
+  border-color: var(--pa-color-white);
+}
+
+.pa-btn--white:hover {
+  background: transparent;
+  color: var(--pa-color-white);
+}
+
 /* Breakpoint reference (use in section-specific media queries) */
 /* Mobile:  max-width: 768px  */
 /* Tablet:  max-width: 1024px */

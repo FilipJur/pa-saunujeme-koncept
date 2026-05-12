@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physiotherm — Dev Preview</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .pa-physio {
+        background: var(--pa-color-dark);
+        padding: 0;
+      }
+
+      .pa-physio__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+        align-items: stretch;
+      }
+
+      .pa-physio__image {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        background-image: url("assets/sections/physio/img1.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .pa-physio__content {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(30px, 3vw, 40px);
+        padding: 50px;
+        justify-content: center;
+      }
+
+      .pa-physio__title {
+        font-family: var(--pa-font-base);
+        font-size: clamp(32px, 4vw, 46px);
+        font-weight: 400;
+        color: var(--pa-color-gold);
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .pa-physio__list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .pa-physio__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .pa-physio__item::before {
+        content: "";
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='15' viewBox='0 0 21 15' fill='none'%3E%3Cpath d='M2 7.41667L7.41667 12.8333L18.25 2' stroke='%23BF9B70' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .pa-physio__text {
+        font-family: var(--pa-font-base);
+        font-size: clamp(16px, 2vw, 21px);
+        font-weight: 400;
+        color: var(--pa-color-white);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .pa-physio__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--pa-space-md);
+      }
+
+      @media (max-width: 768px) {
+        .pa-physio__image {
+          height: auto;
+          aspect-ratio: 16 / 10;
+          min-height: auto;
+        }
+
+        .pa-physio__content {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pa-physio">
+      <div class="pa-physio__grid">
+        <div class="pa-physio__image"></div>
+
+        <div class="pa-physio__content">
+          <h2 class="pa-physio__title">
+            Co Vám přinese používání infrakabiny Physiotherm?
+          </h2>
+
+          <ul class="pa-physio__list">
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">Zmírní přepětí a bolest svalů</p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Zvýší krevní oběh a zlepší metabolismus svaloviny
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">Sníží stresové zatížení</p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Urychlí regeneraci a napraví únavu způsobenou fyzickou námahou
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Posílí imunitní systém, takže se zvýší jeho obranyschopnost
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Díky silnému pocení okamžitě podpoří očistný a detoxikační
+                proces ve Vašem těle
+              </p>
+            </li>
+          </ul>
+
+          <div class="pa-physio__actions">
+            <a href="#" class="pa-btn pa-btn--white">
+              Vědecká studie physiotherm
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 21 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.375 10.5H16.625M16.625 10.5L11.375 5.25M16.625 10.5L11.375 15.75"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
