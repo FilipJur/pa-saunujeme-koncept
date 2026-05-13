@@ -69,8 +69,8 @@
       }
 
       .pa-reviews__play-icon {
-        width: 61px;
-        height: 61px;
+        width: 40px;
+        height: 47px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -166,889 +166,55 @@
     </style>
   </head>
   <body>
+    <!-- Review slide template -->
+    <template id="pa-review-slide">
+      <div class="swiper-slide pa-reviews__slide">
+        <div class="pa-reviews__card">
+          <div class="pa-reviews__thumb">
+            <video
+              class="pa-reviews__video"
+              preload="metadata"
+              muted
+              playsinline
+            >
+              <source src="" type="video/mp4" />
+            </video>
+            <a
+              class="pa-reviews__play"
+              data-fancybox="reviews"
+              data-type="html5video"
+              href=""
+            >
+              <svg
+                class="pa-reviews__play-icon"
+                width="40"
+                height="47"
+                viewBox="0 0 40 47"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 3V43.6667L36.0417 23.3333L3 3Z"
+                  stroke="#575757"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="pa-reviews__info">
+            <div class="pa-reviews__stars"></div>
+            <p class="pa-reviews__name"></p>
+          </div>
+          <p class="pa-reviews__text"></p>
+        </div>
+      </div>
+    </template>
+
     <section class="pa-reviews" style="position: relative">
       <div class="pa-reviews__swiper swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 6 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 7 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-
-          <!-- Slide 8 -->
-          <div class="swiper-slide pa-reviews__slide">
-            <div class="pa-reviews__card">
-              <div class="pa-reviews__thumb">
-                <video
-                  class="pa-reviews__video"
-                  preload="metadata"
-                  muted
-                  playsinline
-                >
-                  <source
-                    src="assets/saunujeme-video-hero.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <a
-                  class="pa-reviews__play"
-                  data-fancybox="reviews"
-                  data-type="html5video"
-                  href="assets/saunujeme-video-hero.mp4"
-                >
-                  <svg
-                    class="pa-reviews__play-icon"
-                    width="40"
-                    height="47"
-                    viewBox="0 0 40 47"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 3V43.6667L36.0417 23.3333L3 3Z"
-                      stroke="#575757"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="pa-reviews__info">
-                <div class="pa-reviews__stars">
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                  <svg
-                    class="pa-reviews__star"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z"
-                      fill="#BF9B70"
-                    />
-                  </svg>
-                </div>
-                <p class="pa-reviews__name">Roman Vitvar</p>
-              </div>
-              <p class="pa-reviews__text">
-                Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas
-                i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1
-                denní realizaci u nás toto nádherné truhlářské dílo předala.
-                Od prvního našeho kontaktu s firmou byla dobrá spolupráce
-                s každým z nich, s kým jsme přišli do styku (s pp Adamem
-                a Dobiášem nejvíce).
-              </p>
-            </div>
-          </div>
-        </div>
+        <div class="swiper-wrapper"></div>
       </div>
 
       <!-- Navigation -->
@@ -1058,8 +224,8 @@
       >
         <svg
           class="pa-reviews__chevron"
-          width="69"
-          height="69"
+          width="45"
+          height="45"
           viewBox="0 0 69 69"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -1079,8 +245,8 @@
       >
         <svg
           class="pa-reviews__chevron"
-          width="69"
-          height="69"
+          width="45"
+          height="45"
           viewBox="0 0 69 69"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -1099,34 +265,112 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
     <script>
-      (function () {
-        var container = document.querySelector(".pa-reviews");
-        var slides = container.querySelectorAll(".pa-reviews__slide");
-        var prevBtn = container.querySelector(".pa-reviews__nav--prev");
-        var nextBtn = container.querySelector(".pa-reviews__nav--next");
+      (() => {
+        const container = document.querySelector(".pa-reviews");
+        const prevBtn = container.querySelector(".pa-reviews__nav--prev");
+        const nextBtn = container.querySelector(".pa-reviews__nav--next");
 
-        console.log("[pa-reviews] slides found:", slides.length);
-        console.log("[pa-reviews] prevBtn:", !!prevBtn);
-        console.log("[pa-reviews] nextBtn:", !!nextBtn);
+        const reviews = [
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+        ];
 
-        function updateNav(swiper) {
-          var showPrev = !swiper.isBeginning;
-          var showNext = !swiper.isEnd;
+        const template = document.getElementById("pa-review-slide");
+        const wrapper = document.querySelector(
+          ".pa-reviews__swiper .swiper-wrapper",
+        );
+        const starSvg =
+          '<svg class="pa-reviews__star" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z" fill="#BF9B70"/></svg>';
+
+        const fragment = document.createDocumentFragment();
+
+        reviews.forEach((r) => {
+          const clone = template.content.cloneNode(true);
+
+          // Video
+          const video = clone.querySelector(".pa-reviews__video source");
+          video.src = r.video;
+
+          // Play link
+          const playLink = clone.querySelector(".pa-reviews__play");
+          playLink.href = r.video;
+
+          // Stars
+          const starsContainer = clone.querySelector(".pa-reviews__stars");
+          let starsHtml = "";
+          for (let i = 0; i < r.stars; i++) {
+            starsHtml += starSvg;
+          }
+          starsContainer.innerHTML = starsHtml;
+
+          // Text content
+          clone.querySelector(".pa-reviews__name").textContent = r.author;
+          clone.querySelector(".pa-reviews__text").textContent = r.text;
+
+          fragment.appendChild(clone);
+        });
+
+        wrapper.appendChild(fragment);
+
+        const slides = container.querySelectorAll(".pa-reviews__slide");
+
+        const updateNav = (swiper) => {
+          const showPrev = !swiper.isBeginning;
+          const showNext = !swiper.isEnd;
 
           prevBtn.classList.toggle("pa-reviews__nav--hidden", !showPrev);
           nextBtn.classList.toggle("pa-reviews__nav--hidden", !showNext);
+        };
 
-          console.log(
-            "[pa-reviews] nav | showPrev:",
-            showPrev,
-            "showNext:",
-            showNext,
-          );
-        }
-
-        function updateOpacity(swiper) {
-          var visible = container.querySelectorAll(".swiper-slide-visible");
-          visible.forEach(function (slide) {
+        const updateOpacity = (swiper) => {
+          const visible = container.querySelectorAll(".swiper-slide-visible");
+          visible.forEach((slide) => {
             slide.classList.remove("pa-reviews__slide--faded");
           });
           if (visible.length > 0) {
@@ -1139,18 +383,10 @@
               );
             }
           }
-          console.log(
-            "[pa-reviews] opacity | visible slides:",
-            visible.length,
-            "fade first:",
-            !swiper.isBeginning,
-            "fade last:",
-            !swiper.isEnd,
-          );
-        }
+        };
 
         if (slides.length > 5) {
-          var swiper = new Swiper(".pa-reviews__swiper", {
+          const swiper = new Swiper(".pa-reviews__swiper", {
             slidesPerView: 5,
             spaceBetween: 24,
             slidesPerGroup: 1,
@@ -1169,46 +405,25 @@
             },
             on: {
               init: function () {
-                console.log("[pa-reviews] Swiper initialized");
-                console.log("[pa-reviews] activeIndex:", this.activeIndex);
-                console.log(
-                  "[pa-reviews] slides in Swiper:",
-                  this.slides.length,
-                );
-                console.log(
-                  "[pa-reviews] isBeginning:",
-                  this.isBeginning,
-                  "isEnd:",
-                  this.isEnd,
-                );
                 updateNav(this);
                 updateOpacity(this);
               },
               slideChange: function () {
-                console.log(
-                  "[pa-reviews] slideChange | activeIndex:",
-                  this.activeIndex,
-                  "isBeginning:",
-                  this.isBeginning,
-                  "isEnd:",
-                  this.isEnd,
-                );
                 updateNav(this);
                 updateOpacity(this);
               },
             },
           });
 
-          var resizeTimer;
-          window.addEventListener("resize", function () {
+          let resizeTimer;
+          window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function () {
+            resizeTimer = setTimeout(() => {
               swiper.update();
               updateOpacity(swiper);
             }, 200);
           });
         } else {
-          console.log("[pa-reviews] static layout (≤5 slides)");
           slides[slides.length - 1].classList.add("pa-reviews__slide--faded");
         }
 
@@ -1221,9 +436,8 @@
               },
             },
           });
-          console.log("[pa-reviews] Fancybox bound successfully");
         } catch (e) {
-          console.error("[pa-reviews] Fancybox bind failed:", e);
+          // Fancybox init failed
         }
       })();
     </script>
