@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saunujeme — Sekce</title>
+    <style>
+/* === SHARED BASE STYLES === */
+
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+/* TODO [PRODUCTION]: Inline the Google Fonts @import so there
+   are zero external HTTP requests in production. */
+
+:root {
+  /* Colors */
+  --pa-color-dark: #14161a;
+  --pa-color-gold: #bf9b70;
+  --pa-color-white: #ffffff;
+  --pa-color-text: #6b6375;
+  --pa-color-text-heading: #08060d;
+
+  /* Typography */
+  --pa-font-base: "Jost", system-ui, sans-serif;
+  --pa-font-mono: ui-monospace, Consolas, monospace;
+
+  /* Spacing */
+  --pa-space-xs: 4px;
+  --pa-space-sm: 8px;
+  --pa-space-md: 16px;
+  --pa-space-lg: 24px;
+  --pa-space-xl: 32px;
+  --pa-space-2xl: 48px;
+  --pa-space-3xl: 64px;
+}
+
+/* Minimal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--pa-font-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TODO [PRODUCTION]: Remove this entire block.
+   The CMS provides the outer container wrapper. This only simulates it during dev preview. */
+body > section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Base typography */
+.pa-heading {
+  font-family: var(--pa-font-base);
+  font-weight: 700;
+  color: var(--pa-color-text-heading);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-heading--h1 {
+  font-size: 56px;
+}
+
+.pa-heading--h2 {
+  font-size: 42px;
+}
+
+.pa-heading--h3 {
+  font-size: 32px;
+}
+
+.pa-heading--h4 {
+  font-size: 24px;
+}
+
+.pa-text {
+  font-family: var(--pa-font-base);
+  font-weight: 400;
+  color: var(--pa-color-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pa-text--large {
+  font-size: 21px;
+}
+
+.pa-text--small {
+  font-size: 14px;
+}
+
+/* Reusable button component */
+.pa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pa-space-sm);
+  padding: 17px 28px;
+  font-family: var(--pa-font-base);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+  text-decoration: none;
+  border-radius: 27px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.pa-btn svg {
+  width: auto;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+/* Primary — dark fill */
+.pa-btn--primary {
+  background: var(--pa-color-dark);
+  color: var(--pa-color-white);
+  border-color: var(--pa-color-dark);
+}
+
+.pa-btn--primary:hover {
+  background: transparent;
+  color: var(--pa-color-dark);
+}
+
+/* Outline — gold border */
+.pa-btn--outline {
+  background: transparent;
+  color: var(--pa-color-gold);
+  border-color: var(--pa-color-gold);
+}
+
+.pa-btn--outline:hover {
+  background: var(--pa-color-gold);
+  color: var(--pa-color-white);
+}
+
+/* White — light fill */
+.pa-btn--white {
+  background: var(--pa-color-white);
+  color: var(--pa-color-dark);
+  border-color: var(--pa-color-white);
+}
+
+.pa-btn--white:hover {
+  background: transparent;
+  color: var(--pa-color-white);
+}
+
+/* === SECTION: pa-models === */
+
+.pa-models {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+  gap: 10px;
+}
+
+.pa-models__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pa-models__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  min-height: 394px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pa-models__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 26, 0.35);
+}
+
+.pa-models__title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--pa-font-base);
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .pa-models__card {
+    min-height: 280px;
+    padding: 60px 24px;
+  }
+
+  .pa-models__title {
+    font-size: 22px;
+  }
+}
+
+/* === SECTION: pa-custom === */
+
+.pa-custom {
+  background: #FAF9F7;
+}
+
+.pa-custom__gallery {
+  display: flex;
+  gap: 10px;
+  height: 401px;
+}
+
+.pa-custom__image {
+  flex: 1 1 50%;
+  min-width: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.pa-custom__image--first {
+  background-image: url('assets/sections/Infrasauny-na-miru/img1.png');
+}
+
+.pa-custom__image--second {
+  background-image: url('assets/sections/Infrasauny-na-miru/img2.png');
+}
+
+.pa-custom__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 30px;
+  margin-top: 55px;
+}
+
+.pa-custom__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.pa-custom__card-title {
+  font-family: var(--pa-font-base);
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-custom__card-line {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid var(--pa-color-dark);
+  margin: 0;
+}
+
+.pa-custom__card-text {
+  font-family: var(--pa-font-base);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pa-custom__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .pa-custom__gallery {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .pa-custom__image {
+    flex: none;
+    height: 250px;
+  }
+
+  .pa-custom__features {
+    margin-top: 40px;
+  }
+
+  .pa-custom__card-title {
+    font-size: 32px;
+  }
+
+  .pa-custom__card-text {
+    font-size: 18px;
+  }
+
+  .pa-custom__actions {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+}
+
+/* === SECTION: pa-persons === */
+
+.pa-persons {
+  background: #FAF9F7;
+}
+
+.pa-persons__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  gap: 10px;
+}
+
+.pa-persons__grid-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 3vw, 40px);
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pa-persons__grid-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 26, 0.35);
+}
+
+.pa-persons__grid-card--1 {
+  background-image: url('assets/sections/4x4/img1.jpg');
+}
+
+.pa-persons__grid-card--2 {
+  background-image: url('assets/sections/4x4/img2.png');
+}
+
+.pa-persons__grid-card--3 {
+  background-image: url('assets/sections/4x4/img3.jpg');
+}
+
+.pa-persons__grid-card--4 {
+  background-image: url('assets/sections/4x4/img4.jpg');
+}
+
+.pa-persons__grid-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--pa-font-base);
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pa-persons__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 30px;
+  margin-top: 55px;
+}
+
+.pa-persons__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.pa-persons__card-title {
+  font-family: var(--pa-font-base);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-persons__card-line {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid var(--pa-color-dark);
+  margin: 0;
+}
+
+.pa-persons__card-text {
+  font-family: var(--pa-font-base);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pa-persons__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pa-persons__grid-title {
+    font-size: 22px;
+  }
+
+  .pa-persons__features {
+    margin-top: 40px;
+  }
+}
+
+/* === SECTION: pa-physio === */
+
+.pa-physio {
+  background: var(--pa-color-dark);
+  padding: 0;
+}
+
+.pa-physio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  align-items: stretch;
+}
+
+.pa-physio__image {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background-image: url("assets/sections/physio/img1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pa-physio__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 3vw, 40px);
+  padding: 50px;
+  justify-content: center;
+}
+
+.pa-physio__title {
+  font-family: var(--pa-font-base);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 400;
+  color: var(--pa-color-gold);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-physio__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pa-physio__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pa-physio__item::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='15' viewBox='0 0 21 15' fill='none'%3E%3Cpath d='M2 7.41667L7.41667 12.8333L18.25 2' stroke='%23BF9B70' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pa-physio__text {
+  font-family: var(--pa-font-base);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 400;
+  color: var(--pa-color-white);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pa-physio__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pa-space-md);
+}
+
+@media (max-width: 768px) {
+  .pa-physio__image {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    min-height: auto;
+  }
+
+  .pa-physio__content {
+    padding: 30px;
+  }
+}
+
+/* === SECTION: pa-reviews === */
+/* TODO [PRODUCTION]: Inline Swiper + Fancybox CSS (from CDN <link> tags in the HTML)
+   into this file, or ensure the CMS allows third-party CDN requests. */
+
+.pa-reviews {
+  max-width: unset;
+  padding-inline: 60px;
+}
+
+.pa-reviews__swiper {
+  overflow: hidden;
+}
+
+.pa-reviews__slide {
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pa-reviews__slide--faded {
+  opacity: 0.2;
+}
+
+.pa-reviews__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pa-reviews__thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 249 / 373;
+  background: #d9d9d9;
+  overflow: hidden;
+}
+
+.pa-reviews__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pa-reviews__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pa-reviews__play-icon {
+  width: 40px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pa-reviews__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 0 10px;
+}
+
+.pa-reviews__stars {
+  display: flex;
+  justify-content: flex-start;
+  gap: 7px;
+}
+
+.pa-reviews__star {
+  width: 20px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.pa-reviews__name {
+  font-family: var(--pa-font-base);
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pa-reviews__text {
+  font-family: var(--pa-font-base);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--pa-color-dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pa-reviews__nav {
+  position: absolute;
+  bottom: -6px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #000000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.2s ease;
+  padding: 0;
+}
+
+.pa-reviews__nav:hover {
+  opacity: 0.8;
+}
+
+.pa-reviews__nav--prev {
+  left: 45px;
+}
+
+.pa-reviews__nav--next {
+  right: 45px;
+}
+
+.pa-reviews__nav--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pa-reviews__chevron {
+  width: 45px;
+  height: 45px;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .pa-reviews {
+    padding: 0 24px 60px;
+  }
+
+  .pa-reviews__nav {
+    width: 60px;
+    height: 60px;
+  }
+}
+    </style>
+
+    <!-- TODO [PRODUCTION]: Inline Swiper + Fancybox CSS, or ensure the CMS allows third-party CDN requests. -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"
+    />
+  </head>
+  <body>
+
+    <!-- === pa-models === -->
+    <section class="pa-models">
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img1.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Dark Aspen</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img2.png')"
+      >
+        <h2 class="pa-models__title">Vitae Design</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img3.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Silver</h2>
+      </div>
+      <div
+        class="pa-models__card"
+        style="background-image: url('assets/sections/4x4/img4.jpg')"
+      >
+        <h2 class="pa-models__title">Vitae Diamond</h2>
+      </div>
+
+      <div class="pa-models__actions">
+        <a href="#" class="pa-btn pa-btn--primary">zjistit cenu</a>
+        <a href="#" class="pa-btn pa-btn--outline">
+          <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 16.6667V14.5833C0 14.008 0.46637 13.5417 1.04167 13.5417C1.61696 13.5417 2.08333 14.008 2.08333 14.5833V16.6667C2.08333 16.9429 2.19316 17.2078 2.38851 17.4032C2.58386 17.5985 2.84873 17.7083 3.125 17.7083H15.625C15.9013 17.7083 16.1661 17.5985 16.3615 17.4032C16.5568 17.2078 16.6667 16.9429 16.6667 16.6667V14.5833C16.6667 14.008 17.133 13.5417 17.7083 13.5417C18.2836 13.5417 18.75 14.008 18.75 14.5833V16.6667C18.75 17.4955 18.4205 18.2901 17.8345 18.8761C17.2484 19.4622 16.4538 19.7917 15.625 19.7917H3.125C2.2962 19.7917 1.50158 19.4622 0.915527 18.8761C0.329476 18.2901 0 17.4955 0 16.6667ZM8.33333 1.04167C8.33333 0.46637 8.7997 0 9.375 0C9.9503 0 10.4167 0.46637 10.4167 1.04167V11.027L13.8468 7.59684C14.2536 7.19005 14.913 7.19005 15.3198 7.59684C15.7266 8.00364 15.7266 8.66303 15.3198 9.06982L10.1115 14.2782C9.70469 14.685 9.0453 14.685 8.63851 14.2782L3.43018 9.06982C3.02338 8.66303 3.02338 8.00364 3.43018 7.59684C3.83697 7.19005 4.49636 7.19005 4.90316 7.59684L8.33333 11.027V1.04167Z" fill="currentColor"/>
+          </svg>
+          Stáhnout katalogy infrasaun
+        </a>
+      </div>
+    </section>
+
+    <!-- === pa-custom === -->
+    <section class="pa-custom">
+      <div class="pa-custom__gallery">
+        <div class="pa-custom__image pa-custom__image--first"></div>
+        <div class="pa-custom__image pa-custom__image--second"></div>
+      </div>
+
+      <div class="pa-custom__features">
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Česká ruční výroba</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Každá sauna vzniká v Kutné Hoře pod rukama zkušených řemeslníků s důrazem na precizní zpracování a dlouhou životnost.
+          </p>
+        </div>
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Prémiové infrazářiče</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Používáme špičkové německé širokospektrální zářiče Vitae, jejichž účinky se nejvíce blíží přirozenému slunečnímu záření.
+          </p>
+        </div>
+        <div class="pa-custom__card">
+          <h3 class="pa-custom__card-title">Přesně podle Vašeho přání</h3>
+          <hr class="pa-custom__card-line" />
+          <p class="pa-custom__card-text">
+            Rozměry, materiály i vybavení přizpůsobíme Vašim požadavkům tak, aby sauna odpovídala přesně tomu, co od ní očekáváte.
+          </p>
+        </div>
+      </div>
+
+      <div class="pa-custom__actions">
+        <a href="#" class="pa-btn pa-btn--primary">zjistit cenu</a>
+        <a href="#" class="pa-btn pa-btn--outline">
+          <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 16.6667V14.5833C0 14.008 0.46637 13.5417 1.04167 13.5417C1.61696 13.5417 2.08333 14.008 2.08333 14.5833V16.6667C2.08333 16.9429 2.19316 17.2078 2.38851 17.4032C2.58386 17.5985 2.84873 17.7083 3.125 17.7083H15.625C15.9013 17.7083 16.1661 17.5985 16.3615 17.4032C16.5568 17.2078 16.6667 16.9429 16.6667 16.6667V14.5833C16.6667 14.008 17.133 13.5417 17.7083 13.5417C18.2836 13.5417 18.75 14.008 18.75 14.5833V16.6667C18.75 17.4955 18.4205 18.2901 17.8345 18.8761C17.2484 19.4622 16.4538 19.7917 15.625 19.7917H3.125C2.2962 19.7917 1.50158 19.4622 0.915527 18.8761C0.329476 18.2901 0 17.4955 0 16.6667ZM8.33333 1.04167C8.33333 0.46637 8.7997 0 9.375 0C9.9503 0 10.4167 0.46637 10.4167 1.04167V11.027L13.8468 7.59684C14.2536 7.19005 14.913 7.19005 15.3198 7.59684C15.7266 8.00364 15.7266 8.66303 15.3198 9.06982L10.1115 14.2782C9.70469 14.685 9.0453 14.685 8.63851 14.2782L3.43018 9.06982C3.02338 8.66303 3.02338 8.00364 3.43018 7.59684C3.83697 7.19005 4.49636 7.19005 4.90316 7.59684L8.33333 11.027V1.04167Z" fill="currentColor"/>
+          </svg>
+          Stáhnout katalogy infrasaun
+        </a>
+      </div>
+    </section>
+
+    <!-- === pa-persons === -->
+    <section class="pa-persons">
+      <div class="pa-persons__grid">
+        <div class="pa-persons__grid-card pa-persons__grid-card--1">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 1 osobu</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--2">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 2 osoby</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--3">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 3 osoby</h2>
+        </div>
+        <div class="pa-persons__grid-card pa-persons__grid-card--4">
+          <h2 class="pa-persons__grid-title">Infrasauna pro 4 osoby</h2>
+        </div>
+      </div>
+
+      <div class="pa-persons__features">
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Maximální komfort</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Správně zvolená velikost zajistí dostatek prostoru pro každého uživatele a ničím nerušený zážitek z prohřívání.
+          </p>
+        </div>
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Efektivní využití výkonu</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Velikost kabiny odpovídá výkonu infrazářičů, což zajišťuje rovnoměrné a účinné prohřátí bez zbytečných ztrát energie.
+          </p>
+        </div>
+        <div class="pa-persons__card">
+          <h3 class="pa-persons__card-title">Přizpůsobení dle prostoru</h3>
+          <hr class="pa-persons__card-line" />
+          <p class="pa-persons__card-text">
+            Ať už hledáte saunu pro jednotlivce nebo pro více osob, snadno ji sladíte s dispozicí interiéru nebo exteriéru i způsobem využití.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === pa-physio === -->
+    <section class="pa-physio">
+      <div class="pa-physio__grid">
+        <div class="pa-physio__image"></div>
+
+        <div class="pa-physio__content">
+          <h2 class="pa-physio__title">
+            Co Vám přinese používání infrakabiny Physiotherm?
+          </h2>
+
+          <ul class="pa-physio__list">
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">Zmírní přepětí a bolest svalů</p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Zvýší krevní oběh a zlepší metabolismus svaloviny
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">Sníží stresové zatížení</p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Urychlí regeneraci a napraví únavu způsobenou fyzickou námahou
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Posílí imunitní systém, takže se zvýší jeho obranyschopnost
+              </p>
+            </li>
+            <li class="pa-physio__item">
+              <p class="pa-physio__text">
+                Díky silnému pocení okamžitě podpoří očistný a detoxikační
+                proces ve Vašem těle
+              </p>
+            </li>
+          </ul>
+
+          <div class="pa-physio__actions">
+            <a href="#" class="pa-btn pa-btn--white">
+              Vědecká studie physiotherm
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 21 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.375 10.5H16.625M16.625 10.5L11.375 5.25M16.625 10.5L11.375 15.75"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === pa-reviews === -->
+    <!-- TODO [PRODUCTION]: This section requires JavaScript (Swiper + Fancybox). The CMS must support
+         <script> tags and external CDN requests, or you must vendor the JS files locally. -->
+
+    <template id="pa-review-slide">
+      <div class="swiper-slide pa-reviews__slide">
+        <div class="pa-reviews__card">
+          <div class="pa-reviews__thumb">
+            <video
+              class="pa-reviews__video"
+              preload="metadata"
+              muted
+              playsinline
+            >
+              <source src="" type="video/mp4" />
+            </video>
+            <a
+              class="pa-reviews__play"
+              data-fancybox="reviews"
+              data-type="html5video"
+              href=""
+            >
+              <svg
+                class="pa-reviews__play-icon"
+                width="40"
+                height="47"
+                viewBox="0 0 40 47"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 3V43.6667L36.0417 23.3333L3 3Z"
+                  stroke="#575757"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="pa-reviews__info">
+            <div class="pa-reviews__stars"></div>
+            <p class="pa-reviews__name"></p>
+          </div>
+          <p class="pa-reviews__text"></p>
+        </div>
+      </div>
+    </template>
+
+    <section class="pa-reviews" style="position: relative">
+      <div class="pa-reviews__swiper swiper">
+        <div class="swiper-wrapper"></div>
+      </div>
+
+      <button
+        class="pa-reviews__nav pa-reviews__nav--prev pa-reviews__nav--hidden"
+        aria-label="Předchozí"
+      >
+        <svg
+          class="pa-reviews__chevron"
+          width="45"
+          height="45"
+          viewBox="0 0 69 69"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M42 17L27 34.5L42 52"
+            stroke="#ffffff"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        class="pa-reviews__nav pa-reviews__nav--next pa-reviews__nav--hidden"
+        aria-label="Další"
+      >
+        <svg
+          class="pa-reviews__chevron"
+          width="45"
+          height="45"
+          viewBox="0 0 69 69"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M27 17L42 34.5L27 52"
+            stroke="#ffffff"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </section>
+
+    <!-- TODO [PRODUCTION]: Vendor Swiper + Fancybox JS files locally or use CDN.
+         Inline the init script below into the main <script> block if possible. -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      (() => {
+        const container = document.querySelector(".pa-reviews");
+        const prevBtn = container.querySelector(".pa-reviews__nav--prev");
+        const nextBtn = container.querySelector(".pa-reviews__nav--next");
+
+        const reviews = [
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+          {
+            author: "Roman Vitvar",
+            text: "Saunu máme něco přes měsíc a zatím jsme v ní každý druhý, občas i každý den. Jsme nadšeni. Podobně, jako když nám firma po 1 denní realizaci u nás toto nádherné truhlářské dílo předala. Od prvního našeho kontaktu s firmou byla dobrá spolupráce s každým z nich, s kým jsme přišli do styku (s pp Adamem a Dobiášem nejvíce).",
+            video: "assets/saunujeme-video-hero.mp4",
+            stars: 5,
+          },
+        ];
+
+        const template = document.getElementById("pa-review-slide");
+        const wrapper = document.querySelector(
+          ".pa-reviews__swiper .swiper-wrapper",
+        );
+        const starSvg =
+          '<svg class="pa-reviews__star" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.993 15.748L3.821 18.993L5 12.12L0 7.253L6.9 6.253L9.986 0L13.072 6.253L19.972 7.253L14.972 12.12L16.151 18.993L9.993 15.748Z" fill="#BF9B70"/></svg>';
+
+        const fragment = document.createDocumentFragment();
+
+        reviews.forEach((r) => {
+          const clone = template.content.cloneNode(true);
+
+          const video = clone.querySelector(".pa-reviews__video source");
+          video.src = r.video;
+
+          const playLink = clone.querySelector(".pa-reviews__play");
+          playLink.href = r.video;
+
+          const starsContainer = clone.querySelector(".pa-reviews__stars");
+          let starsHtml = "";
+          for (let i = 0; i < r.stars; i++) {
+            starsHtml += starSvg;
+          }
+          starsContainer.innerHTML = starsHtml;
+
+          clone.querySelector(".pa-reviews__name").textContent = r.author;
+          clone.querySelector(".pa-reviews__text").textContent = r.text;
+
+          fragment.appendChild(clone);
+        });
+
+        wrapper.appendChild(fragment);
+
+        const slides = container.querySelectorAll(".pa-reviews__slide");
+
+        const updateNav = (swiper) => {
+          const showPrev = !swiper.isBeginning;
+          const showNext = !swiper.isEnd;
+
+          prevBtn.classList.toggle("pa-reviews__nav--hidden", !showPrev);
+          nextBtn.classList.toggle("pa-reviews__nav--hidden", !showNext);
+        };
+
+        const updateOpacity = (swiper) => {
+          const visible = container.querySelectorAll(".swiper-slide-visible");
+          visible.forEach((slide) => {
+            slide.classList.remove("pa-reviews__slide--faded");
+          });
+          if (visible.length > 0) {
+            if (!swiper.isBeginning) {
+              visible[0].classList.add("pa-reviews__slide--faded");
+            }
+            if (!swiper.isEnd) {
+              visible[visible.length - 1].classList.add(
+                "pa-reviews__slide--faded",
+              );
+            }
+          }
+        };
+
+        if (slides.length > 5) {
+          const swiper = new Swiper(".pa-reviews__swiper", {
+            slidesPerView: 5,
+            spaceBetween: 24,
+            slidesPerGroup: 1,
+            watchOverflow: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+              0: { slidesPerView: 1.2, spaceBetween: 12 },
+              480: { slidesPerView: 2, spaceBetween: 16 },
+              768: { slidesPerView: 3, spaceBetween: 20 },
+              1024: { slidesPerView: 4, spaceBetween: 24 },
+              1280: { slidesPerView: 5, spaceBetween: 24 },
+            },
+            navigation: {
+              nextEl: ".pa-reviews__nav--next",
+              prevEl: ".pa-reviews__nav--prev",
+            },
+            on: {
+              init: function () {
+                updateNav(this);
+                updateOpacity(this);
+              },
+              slideChange: function () {
+                updateNav(this);
+                updateOpacity(this);
+              },
+            },
+          });
+
+          let resizeTimer;
+          window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              swiper.update();
+              updateOpacity(swiper);
+            }, 200);
+          });
+        } else {
+          slides[slides.length - 1].classList.add("pa-reviews__slide--faded");
+        }
+
+        try {
+          Fancybox.bind("[data-fancybox]", {
+            Carousel: {
+              Video: {
+                autoplay: true,
+              },
+            },
+          });
+        } catch (e) {
+          // Fancybox init failed
+        }
+      })();
+    </script>
+
+  </body>
+</html>
